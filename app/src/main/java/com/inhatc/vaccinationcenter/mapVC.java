@@ -24,6 +24,7 @@ import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.CircleOverlay;
 import com.naver.maps.map.overlay.InfoWindow;
 import com.naver.maps.map.overlay.Marker;
 import com.naver.maps.map.overlay.Overlay;
@@ -53,12 +54,14 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
     private NaverMap naverMap;
     private MapView mapView;
     private Marker marker1 = new Marker();
-    Button btnInfo, btnPeople;
-
+    Button btnInfo, btnPeople, btnMapPeople, btnMap;
 
     String imageUrl = "https://ncv.kdca.go.kr/kor/img/contents/plan/allview_step.jpg";
 
     List<Marker> markers = new ArrayList<>();
+    List<CircleOverlay> circleList = new ArrayList<>();
+    // 서울, 경기도, 인천, 강원도, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 세종, 부산, 대구, 대전, 광주, 울산
+    double center[][] = {{37.566380,126.977902},{37.263201,127.028574},{37.455791,126.705401},{37.881671,127.732695},{36.641669,127.488753},{36.815116,127.113745},{35.824080,127.147958},{34.810890,126.391914},{36.019013,129.343626},{35.227597,128.682366},{33.495155,126.537470},{36.480862,127.028574},{35.179572,129.075577},{35.871269,128.601734},{36.349637,127.383316},{35.160015,127.383316},{35.538756,129.311327}};
 
     public mapVC() throws MalformedURLException {
     }
@@ -80,6 +83,12 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
         btnPeople = findViewById(R.id.btnPeople);
         btnPeople.setOnClickListener(this);
 
+        btnMapPeople = findViewById(R.id.btnMapPeople);
+        btnMapPeople.setOnClickListener(this);
+
+        btnMap = findViewById(R.id.btnMap);
+        btnMap.setOnClickListener(this);
+
         Intent intent = new Intent(getBaseContext(), PopupActivity.class);
         intent.putExtra("type", PopupType.IMAGE);
         intent.putExtra("title", imageUrl); //Image
@@ -96,6 +105,61 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
         } else if ( v == btnPeople ) {
             Intent PeopleIntent = new Intent(mapVC.this, PeopleVC.class);
             startActivity(PeopleIntent);
+        } else if ( v == btnMapPeople ) {
+            for (int i=0; i<markers.size(); i++) {
+                markers.get(i).setMap(null);
+            }
+            for (int i=0; i<17; i++) {
+                CircleOverlay circle = new CircleOverlay();
+                circle.setCenter(new LatLng(center[i][0], center[i][1]));
+                circle.setColor(-16711936);
+                circle.setRadius(10000);
+                circleList.add(circle);
+            }
+            for (int i=0; i<17; i++) {
+                circleList.get(i).setMap(naverMap);
+            }
+        } else if( v == btnMap) {
+            for (int i=0; i<circleList.size(); i++) {
+                circleList.get(i).setMap(null);
+            }
+            for (int i = 0; i < Sign.data.length; i++) {
+                if(Sign.data[i] != null) {
+                    String name = Sign.data[i].getCenterName();
+                    String add = Sign.data[i].getAddress();
+                    String phone = Sign.data[i].getPhoneNumber();
+                    Double lat = Double.parseDouble(Sign.data[i].getLat());
+                    Double lng = Double.parseDouble(Sign.data[i].getLng());
+
+                    Marker marker = new Marker();
+                    marker.setWidth(50);
+                    marker.setHeight(65);
+                    marker.setCaptionText(name);
+                    marker.setCaptionRequestedWidth(200);
+                    marker.setCaptionMinZoom(10);
+                    marker.setCaptionMaxZoom(21);
+                    marker.setHideCollidedSymbols(true);
+                    marker.setPosition(new LatLng(lat, lng));
+                    markers.add(marker);
+
+                    marker.setOnClickListener(overlay -> {
+                        InfoWindow infoWindow = new InfoWindow();
+                        infoWindow.setAdapter(new InfoWindow.DefaultTextAdapter(this) {
+                            @NonNull
+                            @Override
+                            public CharSequence getText(@NonNull InfoWindow infoWindow) {
+                                String result = "센터이름 : " + name + "\n주소 : " + add + "\n 전화번호 : " + phone;
+                                return result;
+                            }
+                        });
+                        infoWindow.open(marker);
+                        return true;
+                    });
+                }
+            }
+            for (int i=0; i<markers.size(); i++) {
+                markers.get(i).setMap(naverMap);
+            }
         }
     }
 

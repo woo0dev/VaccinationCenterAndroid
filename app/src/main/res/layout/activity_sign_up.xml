@@ -119,21 +119,5 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@id/txtInoculation"/>
 
-    <TextView
-        android:id="@+id/txtIdView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editInoculation"
-        android:layout_marginTop="34dp"
-        android:layout_marginLeft="5dp"
-        android:text="ID :" />
-
-    <ListView
-        android:id="@+id/lstView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtIdView"/>
-
 
 </RelativeLayout>

@@ -21,6 +21,22 @@
         android:layout_toRightOf="@+id/btnInfo">
     </Button>
 
+    <Button
+        android:id="@+id/btnMapPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="접종 현황 지도 표시"
+        android:layout_toRightOf="@+id/btnPeople">
+    </Button>
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="센터 위치"
+        android:layout_toRightOf="@+id/btnMapPeople">
+    </Button>
+
     <com.naver.maps.map.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"

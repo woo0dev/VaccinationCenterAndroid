@@ -48,8 +48,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        txtIdView = findViewById(R.id.txtIdView);
-
         editId = findViewById(R.id.editId);
         editPassword = findViewById(R.id.editPassword);
         editAge = findViewById(R.id.editAge);
