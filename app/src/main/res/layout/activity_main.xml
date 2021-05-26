@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign"
+        android:textSize="12dp"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btnSign"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="-45dp"
+        android:text="SignUp"
+        android:textSize="12dp" />
+
+
+</RelativeLayout>

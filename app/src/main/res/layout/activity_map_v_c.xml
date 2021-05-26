@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mapVC">
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 정보" >
+    </Button>
+
+    <Button
+        android:id="@+id/btnPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="접종 현황"
+        android:layout_toRightOf="@+id/btnInfo">
+    </Button>
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnInfo"/>
+
+</RelativeLayout>

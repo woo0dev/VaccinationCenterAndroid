@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "761297458732",
+    "project_id": "vaccinationcenter-26a0e",
+    "storage_bucket": "vaccinationcenter-26a0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761297458732:android:a5e38678280238ae822389",
+        "android_client_info": {
+          "package_name": "com.inhatc.vaccinationcenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761297458732-ru10elm2hagh8sv752vsp19aotgaai8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv_de3zr82veW_L5iUytwA4y3sgdUk454"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761297458732-ru10elm2hagh8sv752vsp19aotgaai8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

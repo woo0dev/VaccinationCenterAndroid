@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <TextView
+        android:id="@+id/txtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="17dp"
+        android:gravity="center"
+        android:text="회원가입"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/txtId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtLogin"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="5dp"
+        android:text="아이디 :" />
+
+    <EditText
+        android:id="@+id/editId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:layout_alignBaseline="@+id/txtId"
+        android:layout_alignBottom="@+id/txtId"
+        android:layout_marginLeft="110dp"
+        android:layout_toRightOf="@+id/txtId">
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editId"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="비밀번호 :" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:layout_alignLeft="@+id/editId"
+        android:layout_below="@+id/editId"
+        />
+
+    <TextView
+        android:id="@+id/txtAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="나이 :" />
+
+    <EditText
+        android:id="@+id/editAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:layout_alignLeft="@+id/editPassword"
+        android:layout_below="@+id/editPassword"
+        />
+
+    <TextView
+        android:id="@+id/txtInfection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editAge"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="감염여부(양성-1, 음성-2) :" />
+
+    <EditText
+        android:id="@+id/editInfection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:layout_alignLeft="@+id/editAge"
+        android:layout_below="@+id/editAge"
+        />
+
+    <TextView
+        android:id="@+id/txtInoculation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editInfection"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:text="접종여부 :" />
+
+    <EditText
+        android:id="@+id/editInoculation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:layout_alignLeft="@+id/editInfection"
+        android:layout_below="@+id/editInfection"
+        />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp"
+        android:textSize="12dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/txtInoculation"/>
+
+    <TextView
+        android:id="@+id/txtIdView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editInoculation"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="5dp"
+        android:text="ID :" />
+
+    <ListView
+        android:id="@+id/lstView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtIdView"/>
+
+
+</RelativeLayout>
