@@ -14,24 +14,10 @@ public class PeopleVC extends AppCompatActivity {
 
         TextView txt = findViewById(R.id.txt);
 
-        String sido[] = new String[18];
-        long totalFirst[] = new long[18];
-        long totalSecond[] = new long[18];
-        long first[] = new long[18];
-        long second[] = new long[18];
-
         String x = "";
 
         for(int i=0; i<18; i++) {
-            sido[i] = Sign.peopleInfoData[17-i].getSido();
-            totalFirst[i] = Sign.peopleInfoData[17-i].getTotalFirstCnt();
-            totalSecond[i] = Sign.peopleInfoData[17-i].getTotalSecondCnt();
-            first[i] = Sign.peopleInfoData[17-i].getFirstCnt();
-            second[i] = Sign.peopleInfoData[17-i].getSecondCnt();
-        }
-
-        for(int i=0; i<18; i++) {
-            x += "지역 : " + sido[i] + "전체 누적 통계(1차) : " + totalFirst[i] + "전체 누적 통계(2차) : " + totalSecond[i] + "당일 통계(1차) : " + first[i] + "당일 통계(2차) : " + second[i] + "\n";
+            x += "지역 : " + Sign.sido[i] + "전체 누적 통계(1차) : " + Sign.totalFirst[i] + "전체 누적 통계(2차) : " + Sign.totalSecond[i] + "당일 통계(1차) : " + Sign.first[i] + "당일 통계(2차) : " + Sign.second[i] + "\n";
         }
 
         txt.setText(x);

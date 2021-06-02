@@ -19,12 +19,12 @@
             android:name=".mapVC"
             android:label="@string/activity_map_v_c" />
         <activity
-            android:name=".SignUp"
+            android:name="com.inhatc.vaccinationcenter.SignUp"
             android:label="@string/activity_sign_up" />
         <activity
-            android:name=".Sign"
+            android:name="com.inhatc.vaccinationcenter.Sign"
             android:label="@string/activity_sign" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.inhatc.vaccinationcenter.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

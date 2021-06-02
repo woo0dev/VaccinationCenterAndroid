@@ -60,9 +60,42 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
 
     List<Marker> markers = new ArrayList<>();
     List<CircleOverlay> circleList = new ArrayList<>();
+    List<Marker> circleMarkers = new ArrayList<>();
     // 서울, 경기도, 인천, 강원도, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 세종, 부산, 대구, 대전, 광주, 울산
-    double center[][] = {{37.566380,126.977902},{37.263201,127.028574},{37.455791,126.705401},{37.881671,127.732695},{36.641669,127.488753},{36.815116,127.113745},{35.824080,127.147958},{34.810890,126.391914},{36.019013,129.343626},{35.227597,128.682366},{33.495155,126.537470},{36.480862,127.028574},{35.179572,129.075577},{35.871269,128.601734},{36.349637,127.383316},{35.160015,127.383316},{35.538756,129.311327}};
-
+    double center[][] = {{37.566380,126.977902},
+            {35.179572,129.075577},
+            {35.871269,128.601734},
+            {37.455791,126.705401},
+            {36.349637,127.383316},
+            {35.160015,127.383316},
+            {35.538756,129.311327},
+            {36.480862,127.028574},
+            {37.881671,127.732695},
+            {36.641669,127.488753},
+            {37.263201,127.028574},
+            {36.815116,127.113745},
+            {35.824080,127.147958},
+            {34.810890,126.391914},
+            {36.019013,129.343626},
+            {35.227597,128.682366},
+            {33.495155,126.537470}};
+                        //{{37.566380,126.977902},
+                        // {37.263201,127.028574},
+                        // {37.455791,126.705401},
+                        // {37.881671,127.732695},
+                        // {36.641669,127.488753},
+                        // {36.815116,127.113745},
+                        // {35.824080,127.147958},
+                        // {34.810890,126.391914},
+                        // {36.019013,129.343626},
+                        // {35.227597,128.682366},
+                        // {33.495155,126.537470},
+                        // {36.480862,127.028574},
+                        // {35.179572,129.075577},
+                        // {35.871269,128.601734},
+                        // {36.349637,127.383316},
+                        // {35.160015,127.383316},
+                        // {35.538756,129.311327}};
     public mapVC() throws MalformedURLException {
     }
 
@@ -96,6 +129,14 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
         intent.putExtra("buttonRight", "바로가기");
         startActivityForResult(intent, 4);
 
+        for(int i=0; i<18; i++) {
+            Sign.sido[i] = Sign.peopleInfoData[17-i].getSido();
+            Sign.totalFirst[i] = Sign.peopleInfoData[17-i].getTotalFirstCnt();
+            Sign.totalSecond[i] = Sign.peopleInfoData[17-i].getTotalSecondCnt();
+            Sign.first[i] = Sign.peopleInfoData[17-i].getFirstCnt();
+            Sign.second[i] = Sign.peopleInfoData[17-i].getSecondCnt();
+        }
+
     }
 
     public void onClick(View v) {
@@ -112,12 +153,19 @@ public class mapVC extends AppCompatActivity implements OnMapReadyCallback, View
             for (int i=0; i<17; i++) {
                 CircleOverlay circle = new CircleOverlay();
                 circle.setCenter(new LatLng(center[i][0], center[i][1]));
-                circle.setColor(-16711936);
+                circle.setColor(-716711936);
                 circle.setRadius(10000);
                 circleList.add(circle);
+                Marker marker = new Marker();
+                marker.setWidth(1);
+                marker.setHeight(1);
+                marker.setCaptionText(Long.toString(Sign.totalFirst[i]) + "명");
+                marker.setPosition(new LatLng(center[i][0], center[i][1]));
+                circleMarkers.add(marker);
             }
             for (int i=0; i<17; i++) {
                 circleList.get(i).setMap(naverMap);
+                circleMarkers.get(i).setMap(naverMap);
             }
         } else if( v == btnMap) {
             for (int i=0; i<circleList.size(); i++) {

@@ -47,6 +47,12 @@ public class Sign extends AppCompatActivity implements View.OnClickListener {
     public Sign() throws MalformedURLException {
     }
 
+    static String sido[] = new String[18];
+    static long totalFirst[] = new long[18];
+    static long totalSecond[] = new long[18];
+    static long first[] = new long[18];
+    static long second[] = new long[18];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +64,7 @@ public class Sign extends AppCompatActivity implements View.OnClickListener {
 
         btnSign = findViewById(R.id.btnSign);
         btnSign.setOnClickListener(this);
+
 
 
         try {
